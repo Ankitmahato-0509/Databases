@@ -182,6 +182,47 @@ This query demonstrates how multiple aggregate conditions can be applied togethe
 
 ---
 
+## General Order of SQL Execution
+
+When a query uses `GROUP BY` and `HAVING`, SQL follows a specific logical execution order:
+
+1. **FROM** – Selects the table
+2. **WHERE** – Filters rows before grouping
+3. **GROUP BY** – Groups the filtered rows
+4. **HAVING** – Filters groups after aggregation
+5. **SELECT** – Returns the final selected columns
+6. **ORDER BY** – Sorts the final result (if used)
+
+### Logical Flow Example
+
+For a query like:
+
+```sql
+SELECT ActorName, AVG(IMDBRating)
+FROM Movies
+GROUP BY ActorName
+HAVING AVG(IMDBRating) > 8;
+```
+
+SQL processes it in this order:
+
+```
+FROM → GROUP BY → HAVING → SELECT
+```
+
+If `WHERE` or `ORDER BY` are included, the full order becomes:
+
+```
+FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY
+```
+
+Understanding this order helps clarify why:
+
+* `WHERE` cannot use aggregate functions
+* `HAVING` is required for filtering aggregated results
+
+---
+
 ## Learning Objectives
 
 After completing this project, you will understand:
