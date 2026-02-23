@@ -199,3 +199,7 @@ This project provides hands-on practice with SQL **DELETE and DROP operations** 
 
 Understanding these commands is important because deleting data incorrectly can cause serious data loss.
 Always use conditions carefully and keep backups before running deletion queries.
+
+---
+Updated By- AnKit Mahato
+
