@@ -201,5 +201,6 @@ Understanding these commands is important because deleting data incorrectly can 
 Always use conditions carefully and keep backups before running deletion queries.
 
 ---
-Updated By- AnKit Mahato
+Updated By- Ankit Mahato
+
 
