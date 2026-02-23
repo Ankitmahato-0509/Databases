@@ -1,16 +1,18 @@
 # SQL ALTER TABLE Operations Project – Movies Database
 
-This project demonstrates how to use the SQL `ALTER TABLE` command to **change the structure** of an existing table.
+This project demonstrates how to use the SQL `ALTER TABLE` command to **modify the structure of an existing table**.
 
 You will learn how to:
 
-* Add a column
+* Add a new column
 * Drop a column
 * Rename a table
-* Change column name
+* Rename a column
 * Modify column datatype
+* Add constraints
+* Check table structure
 
-This is important for real-world databases where table structure needs updates.
+This project is useful for beginners learning how database tables are updated in real-world applications.
 
 ---
 
@@ -20,10 +22,10 @@ This SQL project includes:
 
 1. Creating a `Movies` table
 2. Inserting movie records
-3. Using different `ALTER TABLE` operations
-4. Understanding structure modification
+3. Applying different `ALTER TABLE` operations
+4. Understanding schema modification
 
-It is ideal for beginners learning SQL table design changes.
+It is ideal for SQL beginners and database lab practice.
 
 ---
 
@@ -41,125 +43,196 @@ It is ideal for beginners learning SQL table design changes.
 
 ---
 
+## Dataset Description
+
+The dataset contains popular movies such as:
+
+* Inception
+* Interstellar
+* Titanic
+* The Dark Knight
+
+These records are used to practice table structure modification.
+
+---
+
 ## Understanding ALTER TABLE
 
-The `ALTER TABLE` command is used to **Always change table structure** without deleting the table.
+The `ALTER TABLE` command is used to **change the structure of an existing table** without deleting the table or data.
 
-It allows you to:
+It can be used to:
 
-* Add new columns
+* Add columns
 * Remove columns
 * Rename table
 * Rename columns
 * Change datatype
+* Add constraints
 
 ---
 
-## ALTER TABLE Queries Included
+## ALTER TABLE Operations Included
 
 ---
 
-### 1. Add a New Column
+### 1. Add New Column
 
-Add a new column called `ReleaseYear`.
+Add a column called `ReleaseYear`.
 
 ```sql
 ALTER TABLE Movies
 ADD ReleaseYear INT;
 ```
 
-This adds a new column to store movie release year.
-
----
-
-### 2. Drop a Column
-
-Remove the column `ReleaseYear`.
+Add another column with default value:
 
 ```sql
 ALTER TABLE Movies
-DROP COLUMN ReleaseYear;
+ADD Language VARCHAR(50) DEFAULT 'English';
 ```
 
-This deletes the column permanently.
+This adds new information fields to the table.
+
+---
+
+### 2. Drop Column
+
+Remove the column `Language`.
+
+```sql
+ALTER TABLE Movies
+DROP COLUMN Language;
+```
+
+This deletes the column permanently along with its data.
 
 ---
 
 ### 3. Rename Table
 
-Rename `Movies` table to `FilmList`.
+Rename table `Movies` to `FilmList`.
+
+#### MySQL
+
+```sql
+RENAME TABLE Movies TO FilmList;
+```
+
+#### PostgreSQL
 
 ```sql
 ALTER TABLE Movies
 RENAME TO FilmList;
 ```
 
-In MySQL, you can also use:
-
-```sql
-RENAME TABLE Movies TO FilmList;
-```
+This changes the table name without affecting data.
 
 ---
 
-### 4. Change Column Name
+### 4. Rename Column
 
-Rename column `ActorName` to `LeadActor`.
+Rename `ActorName` to `LeadActor`.
 
-In MySQL:
+#### MySQL
 
 ```sql
 ALTER TABLE Movies
 CHANGE ActorName LeadActor VARCHAR(100);
 ```
 
-In SQL Server:
+#### PostgreSQL
+
+```sql
+ALTER TABLE Movies
+RENAME COLUMN ActorName TO LeadActor;
+```
+
+#### SQL Server
 
 ```sql
 EXEC sp_rename 'Movies.ActorName', 'LeadActor', 'COLUMN';
 ```
 
+This is useful when column names need correction.
+
 ---
 
 ### 5. Modify Column Datatype
 
-Change datatype of `Budget` from INT to BIGINT.
+Change datatype of `Budget` from `INT` to `BIGINT`.
+
+#### MySQL
 
 ```sql
 ALTER TABLE Movies
 MODIFY Budget BIGINT;
 ```
 
-This allows storing bigger numbers.
+#### PostgreSQL
+
+```sql
+ALTER TABLE Movies
+ALTER COLUMN Budget TYPE BIGINT;
+```
+
+This allows storing larger numbers.
 
 ---
 
-## Important Notes
+### 6. Add NOT NULL Constraint
 
-1. Always backup data before altering tables.
-2. Some changes may fail if column has constraints.
-3. Dropping columns deletes data permanently.
-4. Syntax may change slightly in MySQL, SQL Server, Oracle, PostgreSQL.
+```sql
+ALTER TABLE Movies
+MODIFY Name VARCHAR(100) NOT NULL;
+```
+
+This ensures movie name cannot be empty.
 
 ---
 
-## Example Before Alter
+### 7. Add Primary Key
+
+```sql
+ALTER TABLE Movies
+ADD PRIMARY KEY (Name);
+```
+
+This ensures each movie name is unique.
+
+---
+
+### 8. Check Table Structure
+
+```sql
+DESCRIBE Movies;
+```
+
+or
 
 ```sql
 SELECT * FROM Movies;
 ```
 
-Check structure first.
+This helps verify changes.
 
 ---
 
-## Difference Between ALTER and UPDATE
+## Important Notes
 
-| ALTER TABLE             | UPDATE                    |
-| ----------------------- | ------------------------- |
-| Changes table structure | Changes table data        |
-| Add/drop columns        | Modify row values         |
-| Rename table/columns    | Uses WHERE to select rows |
+1. Always take a database backup before altering tables.
+2. Dropping columns deletes data permanently.
+3. Syntax may vary in MySQL, SQL Server, PostgreSQL.
+4. Some changes fail if constraints exist.
+
+---
+
+## Difference Between ALTER TABLE and UPDATE
+
+| ALTER TABLE             | UPDATE               |
+| ----------------------- | -------------------- |
+| Changes table structure | Changes table data   |
+| Add/remove columns      | Modify row values    |
+| Rename table/columns    | Uses WHERE condition |
 
 ---
 
@@ -167,31 +240,33 @@ Check structure first.
 
 After completing this project, you will understand:
 
-* How to add columns
-* How to remove columns
+* How to add new columns
+* How to delete columns
 * How to rename tables
 * How to rename columns
-* How to change datatype
+* How to modify datatype
+* How to add constraints
 
 ---
 
 ## Use Cases
 
 * Updating database schema
-* Adding new features to apps
-* Fixing column names
-* Expanding storage capacity
-* Database lab practice
+* Adding new features to applications
+* Fixing wrong column names
+* Increasing storage capacity
+* SQL lab assignments
 
 ---
 
 ## Conclusion
 
-This project provides hands-on practice with SQL **ALTER TABLE operations**.
+This project provides practical understanding of SQL **ALTER TABLE operations** using a real-world movie dataset.
 
-Learning ALTER TABLE is important because database structures change over time.
-Knowing how to safely modify tables is an essential SQL skill for students and developers.
+Database structures change over time, and knowing how to safely modify tables is an essential skill for students and developers.
+
 
 ---
+
 
 Updated by:Ankit Mahato
