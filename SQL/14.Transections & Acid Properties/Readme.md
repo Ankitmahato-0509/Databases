@@ -119,8 +119,7 @@ SQL Server Management Studio 2022
 
 ---
 
-## Author
+Updated by: Ankit Mahato
 
-Ankit Mahato
 
 
