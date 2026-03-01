@@ -5,7 +5,7 @@ It is useful for DBMS exams, viva preparation, and beginners learning SQL transa
 
 ---
 
-## 1. What is a Transaction?
+## What is a Transaction?
 
 A transaction is a group of SQL operations that execute together as one unit.
 
@@ -16,7 +16,7 @@ Example: Money transfer between two bank accounts.
 
 ---
 
-## 2. Table Creation
+## Table Creation
 
 We create an Accounts table with Account ID, Account Holder name, and Balance.
 
@@ -30,7 +30,7 @@ CREATE TABLE Accounts (
 
 ---
 
-## 3. Insert Sample Data
+## Insert Sample Data
 
 ```sql
 INSERT INTO Accounts (AccountID, AccountHolder, Balance)
@@ -46,7 +46,7 @@ Account B → 2000
 
 ---
 
-## 4. Transaction Code (Money Transfer)
+## Transaction Code (Money Transfer)
 
 This transaction transfers 500 from Account A to Account B.
 If any error happens, the transaction is rolled back.
@@ -76,7 +76,7 @@ END CATCH;
 
 ---
 
-## 5. Check Result
+## Check Result
 
 ```sql
 SELECT * FROM Accounts;
@@ -89,7 +89,7 @@ Account B → 2500
 
 ---
 
-## 6. ACID Properties Explained
+## ACID Properties Explained
 
 Atomicity
 The transaction is all or nothing. If debit fails, credit is also cancelled.
@@ -105,21 +105,22 @@ After commit, the data is permanently saved even if the system crashes.
 
 ---
 
-## 7. Why Transactions Are Important
+## Why Transactions Are Important
 
 Transactions are used in banking systems, online shopping, ticket booking, salary systems, and inventory management.
 They prevent data loss and keep data accurate.
 
 ---
 
-## 8. Tools Used
+## Tools Used
 
 SQL Server Management Studio 2022
 (MySQL or phpMyAdmin can also be used with small syntax changes)
 
 ---
 
-## 9. Author
+## Author
 
 Ankit Mahato
+
 
