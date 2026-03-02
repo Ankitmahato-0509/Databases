@@ -1,24 +1,27 @@
 # DBMS Transaction and ACID Properties
 
-This project explains database transactions and ACID properties using a banking money transfer example in SQL Server.
-It is useful for DBMS exams, viva preparation, and beginners learning SQL transactions.
+This project demonstrates **Database Transactions** and **ACID Properties** using a banking money transfer example in **Microsoft SQL Server**.
+
+It is useful for:
+
+* DBMS practical exams
+* Viva preparation
+* Beginners learning SQL transactions
 
 ---
 
 ## What is a Transaction?
 
-A transaction is a group of SQL operations that execute together as one unit.
+A **transaction** is a group of SQL operations executed as a single unit of work.
 
-If all steps succeed → COMMIT
-If any step fails → ROLLBACK
+* If all operations succeed → **COMMIT**
+* If any operation fails → **ROLLBACK**
 
-Example: Money transfer between two bank accounts.
+Example: Transferring money from one bank account to another.
 
 ---
 
-## Table Creation
-
-We create an Accounts table with Account ID, Account Holder name, and Balance.
+## Create Table: Accounts
 
 ```sql
 CREATE TABLE Accounts (
@@ -35,91 +38,113 @@ CREATE TABLE Accounts (
 ```sql
 INSERT INTO Accounts (AccountID, AccountHolder, Balance)
 VALUES
-(1, 'Account A', 1000.00),
-(2, 'Account B', 2000.00);
+    (1, 'Account A', 1000.00),
+    (2, 'Account B', 2000.00);
 ```
 
-Initial Balance:
+### Initial Balances
 
-Account A → 1000
-Account B → 2000
+| Account   | Balance |
+| --------- | ------- |
+| Account A | 1000    |
+| Account B | 2000    |
 
 ---
 
-## Transaction Code (Money Transfer)
+# Transaction Example – Money Transfer
 
-This transaction transfers 500 from Account A to Account B.
-If any error happens, the transaction is rolled back.
+Transfer 500 from Account A to Account B.
 
 ```sql
 BEGIN TRANSACTION;
 
-BEGIN TRY
+    -- Debit Account A
     UPDATE Accounts
     SET Balance = Balance - 500
     WHERE AccountID = 1;
 
+    -- Credit Account B
     UPDATE Accounts
     SET Balance = Balance + 500
     WHERE AccountID = 2;
 
-    COMMIT TRANSACTION;
-    PRINT 'Transaction committed successfully';
-END TRY
+-- Check balances before final commit
+SELECT * FROM Accounts;
 
-BEGIN CATCH
-    ROLLBACK TRANSACTION;
-    PRINT 'Transaction failed, rolled back';
-    PRINT ERROR_MESSAGE();
-END CATCH;
+COMMIT TRANSACTION;
 ```
 
 ---
 
-## Check Result
+## Example: Rollback Demonstration
 
 ```sql
+BEGIN TRANSACTION;
+
+    -- No permanent change
+    ROLLBACK TRANSACTION;
+
+-- Check balances after rollback
 SELECT * FROM Accounts;
 ```
 
-Final Balance:
-
-Account A → 500
-Account B → 2500
+Rollback cancels the transaction and restores previous values.
 
 ---
 
-## ACID Properties Explained
+## Final Result After Commit
 
-Atomicity
-The transaction is all or nothing. If debit fails, credit is also cancelled.
-
-Consistency
-The database remains correct after the transaction. No invalid data is saved.
-
-Isolation
-Multiple transactions do not affect each other. Each runs separately.
-
-Durability
-After commit, the data is permanently saved even if the system crashes.
+| Account   | Balance |
+| --------- | ------- |
+| Account A | 500     |
+| Account B | 2500    |
 
 ---
 
-## Why Transactions Are Important
+# ACID Properties Explained
 
-Transactions are used in banking systems, online shopping, ticket booking, salary systems, and inventory management.
-They prevent data loss and keep data accurate.
+### Atomicity
+
+Transaction is all or nothing.
+If debit fails, credit is also cancelled.
+
+### Consistency
+
+Database remains valid before and after the transaction.
+Total money remains consistent.
+
+### Isolation
+
+Multiple transactions execute independently without affecting each other.
+
+### Durability
+
+Once committed, data is permanently saved even if the system crashes.
+
+---
+
+# Why Transactions Are Important
+
+Transactions are critical in:
+
+* Banking systems
+* Online shopping
+* Ticket booking
+* Salary systems
+* Inventory management
+
+They prevent data corruption and ensure accuracy.
 
 ---
 
 ## Tools Used
 
-SQL Server Management Studio 2022
-(MySQL or phpMyAdmin can also be used with small syntax changes)
+* **SQL Server Management Studio**
+* MySQL (with minor syntax changes)
+* phpMyAdmin (for MySQL environments)
 
 ---
 
-Updated by: Ankit Mahato
+### Author
 
-
-
+Ankit Mahato

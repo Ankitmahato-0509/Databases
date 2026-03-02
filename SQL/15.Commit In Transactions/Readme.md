@@ -1,47 +1,48 @@
-# DBMS Transaction and ACID Properties
+# DBMS Transaction and ACID Properties (SQL Server)
 
-This project explains database transactions, AUTOCOMMIT mode, and ACID properties using a banking money transfer example in SQL Server.
-It is useful for DBMS exams, viva preparation, and beginners learning SQL transactions.
+This project explains **Database Transactions**, **Implicit Transactions (AUTOCOMMIT behavior)**, and **ACID properties** using a banking money transfer example in **Microsoft SQL Server**.
 
 ---
 
 ## What is a Transaction?
 
-A transaction is a group of SQL operations that execute together as one unit.
+A **transaction** is a group of SQL operations executed as a single unit of work.
 
-If all steps succeed → COMMIT
-If any step fails → ROLLBACK
+* If all steps succeed → **COMMIT**
+* If any step fails → **ROLLBACK**
 
 Example: Money transfer between two bank accounts.
 
 ---
 
-## What is AUTOCOMMIT?
+## AUTOCOMMIT in SQL Server
 
-AUTOCOMMIT controls whether SQL automatically saves changes after every query.
+In SQL Server, each statement is committed automatically by default (similar to AUTOCOMMIT = ON in MySQL).
 
-AUTOCOMMIT = 1 → Enable automatic saving
-AUTOCOMMIT = 0 → Disable automatic saving (manual COMMIT needed)
-
-In banking systems, AUTOCOMMIT is often disabled to avoid partial updates.
-
----
-
-## Disable AUTOCOMMIT
+To control transactions manually, SQL Server provides:
 
 ```sql
--- MySQL
-SET autocommit = 0;
-
--- SQL Server equivalent
 SET IMPLICIT_TRANSACTIONS ON;
 ```
+
+When **IMPLICIT_TRANSACTIONS is ON**:
+
+* SQL Server automatically starts a transaction.
+* You must explicitly use `COMMIT` or `ROLLBACK`.
+
+To return to default behavior:
+
+```sql
+SET IMPLICIT_TRANSACTIONS OFF;
+```
+
+In banking systems, manual transaction control is preferred to prevent partial updates.
 
 ---
 
 ## Table Creation
 
-We create an account table with account ID, account holder name, and balance.
+We create an `account` table with account ID, account holder name, and balance.
 
 ```sql
 CREATE TABLE account (
@@ -62,11 +63,13 @@ INSERT INTO account (account_holder, balance) VALUES
 ('Alice Johnson', 500.75);
 ```
 
-Initial Balance:
+### Initial Balance
 
-John Doe → 1000.00
-Jane Smith → 2500.50
-Alice Johnson → 500.75
+| Account Holder | Balance |
+| -------------- | ------- |
+| John Doe       | 1000.00 |
+| Jane Smith     | 2500.50 |
+| Alice Johnson  | 500.75  |
 
 ---
 
@@ -78,9 +81,9 @@ SELECT * FROM account;
 
 ---
 
-## Transaction Code (Money Transfer)
+# Transaction Example – Money Transfer
 
-This transaction transfers 200 from John Doe to Jane Smith.
+Transfer **200** from John Doe (ID = 1) to Jane Smith (ID = 2).
 
 ```sql
 BEGIN TRANSACTION;
@@ -104,54 +107,58 @@ COMMIT TRANSACTION;
 SELECT * FROM account;
 ```
 
-Final Balance:
+### Final Balance
 
-John Doe → 800.00
-Jane Smith → 2700.50
-Alice Johnson → 500.75
-
----
-
-## Enable AUTOCOMMIT Again
-
-```sql
--- MySQL
-SET autocommit = 1;
-
--- SQL Server
-SET IMPLICIT_TRANSACTIONS OFF;
-```
+| Account Holder | Balance |
+| -------------- | ------- |
+| John Doe       | 800.00  |
+| Jane Smith     | 2700.50 |
+| Alice Johnson  | 500.75  |
 
 ---
 
 ## ACID Properties Explained
 
-Atomicity
-The transaction is all or nothing. If debit fails, credit is also cancelled.
+### Atomicity
 
-Consistency
-The database remains correct after the transaction. No invalid data is saved.
+Transaction is all or nothing. If debit fails, credit is also cancelled.
 
-Isolation
-Multiple transactions do not affect each other. Each runs separately.
+### Consistency
 
-Durability
-After commit, the data is permanently saved even if the system crashes.
+Database remains valid before and after the transaction. No invalid data is saved.
+
+### Isolation
+
+Multiple transactions execute independently without affecting each other.
+
+### Durability
+
+Once committed, data is permanently stored even if the system crashes.
 
 ---
 
 ## Why Transactions Are Important
 
-Transactions are used in banking systems, online shopping, ticket booking, salary systems, and inventory management.
-They prevent data loss and keep data accurate.
+Transactions are critical in:
+
+* Banking systems
+* Online shopping
+* Ticket booking
+* Salary systems
+* Inventory management
+
+They prevent data corruption and ensure accuracy.
 
 ---
 
 ## Tools Used
 
-SQL Server Management Studio 2022
-(MySQL or phpMyAdmin can also be used with small syntax changes)
+* **SQL Server Management Studio**
+* MySQL (with minor syntax adjustments)
+* phpMyAdmin (for MySQL environments)
 
 ---
 
-Updated by: Ankit Mahato
+Updated by:
+Ankit Mahato
+
