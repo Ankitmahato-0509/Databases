@@ -8,14 +8,13 @@ CREATE TABLE Accounts (
 -- INSERT sample data
 INSERT INTO Accounts (AccountID, AccountHolder, Balance)
 VALUES
-(1, 'Account A', 1000.00),
-(2, 'Account B', 2000.00);
+    (1, 'Account A', 1000.00),
+    (2, 'Account B', 2000.00);
 
 ----------------------------------------------------------
 -- Transaction: Transfer money from Account A to Account B
 ----------------------------------------------------------
-BEGIN TRY
-    BEGIN TRANSACTION;
+BEGIN TRANSACTION;
 
     -- Debit Account A
     UPDATE Accounts
@@ -27,17 +26,19 @@ BEGIN TRY
     SET Balance = Balance + 500
     WHERE AccountID = 2;
 
-    -- Commit if successful
-    COMMIT TRANSACTION;
-END TRY
-BEGIN CATCH
-    -- Rollback if any error occurs
-    ROLLBACK TRANSACTION;
-
-    -- Print error message for debugging
-    PRINT 'Transaction failed. Rolled back.';
-    PRINT ERROR_MESSAGE();
-END CATCH;
+-- Commit if successful
+COMMIT TRANSACTION;
 
 -- Check balances after transaction
+SELECT * FROM Accounts;
+
+----------------------------------------------------------
+-- Example rollback demonstration
+----------------------------------------------------------
+BEGIN TRANSACTION;
+
+    -- (No changes here, just showing rollback)
+    ROLLBACK TRANSACTION;
+
+-- Check balances after rollback
 SELECT * FROM Accounts;
