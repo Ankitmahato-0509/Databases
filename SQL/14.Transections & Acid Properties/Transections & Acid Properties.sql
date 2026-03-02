@@ -26,10 +26,7 @@ BEGIN TRANSACTION;
     SET Balance = Balance + 500
     WHERE AccountID = 2;
 
--- Commit if successful
-COMMIT TRANSACTION;
-
--- Check balances after transaction
+-- Check balances after transaction (before commit)
 SELECT * FROM Accounts;
 
 ----------------------------------------------------------
@@ -41,4 +38,12 @@ BEGIN TRANSACTION;
     ROLLBACK TRANSACTION;
 
 -- Check balances after rollback
+SELECT * FROM Accounts;
+
+----------------------------------------------------------
+-- Final commit to make changes permanent
+----------------------------------------------------------
+COMMIT TRANSACTION;
+
+-- Verify balances after permanent commit
 SELECT * FROM Accounts;
