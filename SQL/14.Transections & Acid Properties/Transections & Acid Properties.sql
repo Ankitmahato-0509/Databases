@@ -1,7 +1,3 @@
--- Create a simple transaction to transfer money between two accounts in a banking system.
---The transaction should ensure that if any part of the transfer fails, the entire transaction is rolled back to maintain data integrity.
-
-
 -- CREATE Table Accounts
 CREATE TABLE Accounts (
     AccountID INT PRIMARY KEY,
@@ -9,19 +5,18 @@ CREATE TABLE Accounts (
     Balance DECIMAL(10,2)
 );
 
--- INSERT INTO Accounts
+-- INSERT sample data
 INSERT INTO Accounts (AccountID, AccountHolder, Balance)
 VALUES
 (1, 'Account A', 1000.00),
 (2, 'Account B', 2000.00);
 
-
-
--- Transaction to transfer money from Account A to Account B
-
-BEGIN TRANSACTION;
-
+----------------------------------------------------------
+-- Transaction: Transfer money from Account A to Account B
+----------------------------------------------------------
 BEGIN TRY
+    BEGIN TRANSACTION;
+
     -- Debit Account A
     UPDATE Accounts
     SET Balance = Balance - 500
@@ -34,18 +29,15 @@ BEGIN TRY
 
     -- Commit if successful
     COMMIT TRANSACTION;
-    PRINT 'Transaction committed successfully';
 END TRY
 BEGIN CATCH
-    -- Rollback if error occurs
+    -- Rollback if any error occurs
     ROLLBACK TRANSACTION;
-    PRINT 'Transaction failed, rolled back';
+
+    -- Print error message for debugging
+    PRINT 'Transaction failed. Rolled back.';
     PRINT ERROR_MESSAGE();
 END CATCH;
 
-
--- Check the balances after the transaction
-
+-- Check balances after transaction
 SELECT * FROM Accounts;
-
-
