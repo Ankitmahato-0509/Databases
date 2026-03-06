@@ -29,6 +29,7 @@ UPDATE account
 SET balance = balance + 200.00
 WHERE account_id = 2;
 
+
 -- Check Data Before Rollback
 SELECT * FROM account;
 

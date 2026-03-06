@@ -8,6 +8,7 @@ CREATE TABLE Movies (
     IMDBRating FLOAT                 
 );
 
+
 -- 2. Insert sample movie data
 
 INSERT INTO Movies (Name, ActorName, ProducerName, Budget, IMDBRating)

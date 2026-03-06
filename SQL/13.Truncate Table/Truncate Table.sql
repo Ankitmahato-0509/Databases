@@ -35,6 +35,7 @@ INSERT INTO Movies (Name, ActorName, ProducerName, Budget, IMDBRating)
 VALUES
 ('Avatar', 'Sam Worthington', 'James Cameron', 237000000, 7.8);
 
+
 ---- 5. Check Final Data
 
 SELECT * FROM Movies;

@@ -10,6 +10,7 @@ INSERT INTO account (account_holder, balance) VALUES
 ('Jane Smith', 2500.50),
 ('Alice Johnson', 500.75);
 
+
 SELECT * FROM account;
 
 

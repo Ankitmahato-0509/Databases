@@ -22,6 +22,7 @@ UPDATE accounts
 SET balance = balance + 1000 
 WHERE id = 1;
 
+
 -- Create a savepoint after the top-up
 SAVE TRANSACTION after_wallet_topup;
 

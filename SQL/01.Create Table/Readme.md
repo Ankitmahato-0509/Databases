@@ -8,7 +8,7 @@ This repository demonstrates how to create and understand a basic SQL table for 
 It’s perfect for **beginners learning SQL database design**, especially the use of **PRIMARY KEY**, **VARCHAR**, **INT**, and **FLOAT** data types.
 
 ***
-
+ 
 ## Table Structure
 
 **Table Name:** `Movies`
