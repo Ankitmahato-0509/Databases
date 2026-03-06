@@ -56,7 +56,6 @@ FROM customers c
 INNER JOIN orders o
     ON c.customer_id = o.customer_id;
 
-
 -- ==========================================
 -- QUERY 3: Retrieve names of customers with orders greater than 1000
 -- ==========================================
