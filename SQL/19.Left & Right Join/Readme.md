@@ -12,7 +12,6 @@ Using JOIN queries, we can retrieve information such as:
 This project helps beginners understand **how SQL joins work when some records do not match**.
 
 ---
-
 # Project Overview
 
 This SQL project includes:
@@ -195,3 +194,4 @@ These join operations are widely used in **data analysis, reporting, and real-wo
 **Updated By – Ankit Mahato**
 
 ---
+
