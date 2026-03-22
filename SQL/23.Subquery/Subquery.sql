@@ -30,6 +30,8 @@ CREATE TABLE orders (
         REFERENCES customers(customer_id)
 );
 
+
+
 -- ==========================================
 -- INSERT DATA INTO ORDERS
 -- ==========================================
