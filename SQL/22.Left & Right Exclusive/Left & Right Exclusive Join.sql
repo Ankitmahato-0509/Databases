@@ -12,6 +12,7 @@ CREATE TABLE orders (
     amount DECIMAL(10,2)
 );
 
+
 -- Query: Insert sample customer data
 INSERT INTO customers (customer_id, name, city) VALUES
 (1, 'Alice', 'Mumbai'),
