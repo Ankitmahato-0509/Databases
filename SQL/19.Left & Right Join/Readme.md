@@ -14,6 +14,7 @@ This project helps beginners understand **how SQL joins work when some records d
 ---
 # Project Overview
 
+
 This SQL project includes:
 
 1. Creating a `customers` table

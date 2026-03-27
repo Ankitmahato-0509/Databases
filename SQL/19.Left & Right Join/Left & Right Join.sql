@@ -7,6 +7,7 @@ CREATE TABLE customers (
     city NVARCHAR(50)
 );
 
+
 -- ==========================================
 -- INSERT DATA INTO CUSTOMERS
 -- ==========================================
