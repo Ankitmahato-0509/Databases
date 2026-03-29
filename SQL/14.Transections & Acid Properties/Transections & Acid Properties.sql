@@ -12,9 +12,9 @@ VALUES
     (2, 'Account B', 2000.00);
 
 
-----------------------------------------------------------
+
 -- Transaction: Transfer money from Account A to Account B
-----------------------------------------------------------
+
 BEGIN TRANSACTION;
 
     -- Debit Account A
@@ -30,9 +30,9 @@ BEGIN TRANSACTION;
 -- Check balances after transaction (before commit)
 SELECT * FROM Accounts;
 
-----------------------------------------------------------
+
 -- Example rollback demonstration
-----------------------------------------------------------
+
 BEGIN TRANSACTION;
 
     -- (No changes here, just showing rollback)
@@ -41,9 +41,9 @@ BEGIN TRANSACTION;
 -- Check balances after rollback
 SELECT * FROM Accounts;
 
-----------------------------------------------------------
+
 -- Final commit to make changes permanent
-----------------------------------------------------------
+
 COMMIT TRANSACTION;
 
 -- Verify balances after permanent commit
