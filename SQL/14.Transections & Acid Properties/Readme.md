@@ -4,6 +4,7 @@ This project demonstrates **Database Transactions** and **ACID Properties** usin
 
 It is useful for:
 
+
 * DBMS practical exams
 * Viva preparation
 * Beginners learning SQL transactions
