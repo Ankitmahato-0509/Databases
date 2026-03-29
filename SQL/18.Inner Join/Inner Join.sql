@@ -61,3 +61,5 @@ INNER JOIN orders o
     ON c.customer_id = o.customer_id
 WHERE o.amount > 1000;
 
+
+
