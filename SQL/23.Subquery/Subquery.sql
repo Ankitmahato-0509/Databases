@@ -52,4 +52,3 @@ WHERE o.amount > (
     SELECT AVG(amount)
     FROM orders
 );
-
