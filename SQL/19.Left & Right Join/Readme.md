@@ -12,6 +12,7 @@ Using JOIN queries, we can retrieve information such as:
 This project helps beginners understand **how SQL joins work when some records do not match**.
 
 ---
+
 # Project Overview
 
 
