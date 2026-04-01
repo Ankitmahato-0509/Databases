@@ -19,7 +19,7 @@ Each folder focuses on a specific SQL concept:
 
 ---
 
-### 📊 Data Aggregation
+###  Data Aggregation
 
 * `07.Aggregate Functions` – COUNT, SUM, AVG, MIN, MAX
 * `08.Group By Clause` – Grouping data for analysis
@@ -64,14 +64,14 @@ Each folder focuses on a specific SQL concept:
 
 ---
 
-### 🧪 Practice & Projects
+###  Practice & Projects
 
 * `Practice` – Hands-on SQL problems
 * `Project` – Real-world SQL implementations
 
 ---
 
-## 🎯 Purpose
+##  Purpose
 
 * Build strong SQL fundamentals
 * Practice real-world database queries
