@@ -96,5 +96,5 @@ Each folder focuses on a specific SQL concept:
 * Try modifying queries to deepen your learning
 
 ---
+## Updated By: Ankit Mahato
 
-⭐ If you find this repository useful, consider giving it a star!
