@@ -2,7 +2,7 @@
 
 This folder contains a structured collection of SQL concepts, queries, and practical examples. It is designed as a step-by-step learning path, starting from basic commands and progressing to advanced topics like joins, transactions, and stored procedures.
 
----
+
 
 ##  Folder Structure
 
@@ -17,7 +17,7 @@ Each folder focuses on a specific SQL concept:
 * `05.Order By Clause` – Sorting query results
 * `06.Limit Clause` – Limiting the number of results
 
----
+
 
 ###  Data Aggregation
 
@@ -34,7 +34,6 @@ Each folder focuses on a specific SQL concept:
 * `12.Alter Table` – Modifying table structure
 * `13.Truncate Table` – Quickly deleting all records
 
----
 
 ###  Transactions & ACID
 
@@ -43,7 +42,7 @@ Each folder focuses on a specific SQL concept:
 * `16.Rollback In Transactions` – Reverting changes
 * `17.Savepoint In Transactions` – Partial rollbacks
 
----
+
 
 ### Joins & Relationships
 
@@ -53,7 +52,7 @@ Each folder focuses on a specific SQL concept:
 * `21.Self Join` – Joining a table with itself
 * `22.Left & Right Exclusive` – Exclusive joins
 
----
+
 
 ###  Advanced Concepts
 
@@ -62,14 +61,14 @@ Each folder focuses on a specific SQL concept:
 * `25.Index` – Improving query performance
 * `26.Store & Call Procedure` – Reusable SQL logic
 
----
+
 
 ###  Practice & Projects
 
 * `Practice` – Hands-on SQL problems
 * `Project` – Real-world SQL implementations
 
----
+
 
 ##  Purpose
 
@@ -78,7 +77,7 @@ Each folder focuses on a specific SQL concept:
 * Prepare for data analyst and developer roles
 * Create a reference for quick revision
 
----
+
 
 ##  How to Use
 
@@ -87,7 +86,6 @@ Each folder focuses on a specific SQL concept:
 3. Run queries in your SQL environment (MySQL, PostgreSQL, SQL Server, etc.)
 4. Practice regularly using the `Practice` folder
 
----
 
 ## Notes
 
@@ -95,6 +93,6 @@ Each folder focuses on a specific SQL concept:
 * Focus on understanding concepts, not just syntax
 * Try modifying queries to deepen your learning
 
----
+
 ## Updated By: Ankit Mahato
 
