@@ -8,6 +8,7 @@ This folder contains a structured collection of SQL concepts, queries, and pract
 
 Each folder focuses on a specific SQL concept:
 
+
 ###  Basics
 
 * `01.Create Table` – Creating tables with different data types and constraints
