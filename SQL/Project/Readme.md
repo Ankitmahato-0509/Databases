@@ -9,6 +9,7 @@ This project is made for DBMS lab practice and my 100 Days of Code challenge.
 
 ## Technologies Used
 
+
 * SQL
 * SQL Server Management Studio 2022 (SSMS 22)
 * GitHub
