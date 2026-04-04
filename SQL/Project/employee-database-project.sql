@@ -8,7 +8,6 @@ CREATE TABLE Employee (
     HireDate DATE
 );
 
-
 -- Insert records
 INSERT INTO Employee (EmpID, FirstName, LastName, Department, Salary, HireDate)
 VALUES
