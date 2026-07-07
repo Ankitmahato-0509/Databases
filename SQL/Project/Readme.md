@@ -5,7 +5,6 @@
 This project creates an Employee database using SQL.
 It includes table creation, inserting records, and basic queries to display employee details.
 
-This project is made for DBMS lab practice and my 100 Days of Code challenge.
 
 ## Technologies Used
 
